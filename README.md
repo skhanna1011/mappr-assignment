@@ -4,7 +4,7 @@ Clone this repo and run the project locally using command 'git clone https://git
 
 This project uses Ruby version '2.5.1'. Please refer offical Ruby Docs at 'https://www.ruby-lang.org/en/' and upgrade accordingly.
 
-This project usue Rails version '5.2.2'
+This project uses Rails version '5.2.2'
 
 Go to the project repo(directory).
 
