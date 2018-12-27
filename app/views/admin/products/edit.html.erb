@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+<h1>Edit Products</h1>
+
+<%= form_for([:admin, @product]) do |f|%>
+
+  <%= f.label :expire_date, "Expire Date:" %>
+  <%= f.date_field :expire_date%><br/>
+
+  <%= f.label :name, "Name:" %>
+  <%= f.text_field :name, placeholder: "Name", autofocus:"true"%><br/>
+  
+  <%= f.label :sku_id, "SKU_Id:" %>
+  <%= f.number_field :sku_id, placeholder: "SKU_Id"%><br/>
+
+  <%= f.label :categories, "Categories:" %>
+  <%= f.text_area :categories, placeholder: "Categories"%><br/>
+
+  <%= f.label :tags, "Tags:" %>
+  <%= f.text_area :tags, placeholder: "Tags"%><br/>
+
+  <%= f.label :images, "Images:" %>
+  <%= if JSON.parse(@product.images)
+            image_tag(JSON.parse(@product.images)[0]["img_path"], size: "150x100", alt: "Image not found")
+          else
+            "No Images"
+          end
+  %><br/>
+
+  <%= f.label :price, "Price:" %>
+  <%= f.number_field :price, placeholder: "Price"%><br/>
+
+  <%= f.submit%>
+<%end%>
+<br/>
+<%= link_to 'Delete', ([:admin, @product]), method: :delete, data: { confirm: 'Are you sure?' }%>

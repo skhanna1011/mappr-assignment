@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+<h1>Products</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>SKU_Id</th>
+      <th>Price</th>
+      <th>Picture</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= link_to product.name, edit_admin_product_path(product)%></td>
+        <td><%= product.sku_id%></td>
+        <td><%= product.price%></td>
+        <td><%= 
+          if JSON.parse(product.images)
+            image_tag(JSON.parse(product.images)[0]["img_path"], size: "150x100", alt: "Image not found")
+          else
+            "No Images"
+          end
+        %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
